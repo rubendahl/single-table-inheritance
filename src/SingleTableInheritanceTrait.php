@@ -37,7 +37,9 @@ trait SingleTableInheritanceTrait {
 
     static::addGlobalScope(new SingleTableInheritanceScope);
 
-    static::observe(new SingleTableInheritanceObserver());
+    static::whenBooted(function () {
+        static::observe(new SingleTableInheritanceObserver());
+    });
   }
 
   /**
